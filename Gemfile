@@ -31,9 +31,19 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+group :development do
+end
+
 group :development, :test do
   gem 'rspec-rails', '3.1'
+  #gem 'factory_girl_rails', '~> 4.4.1'
+  gem 'fabrication'
+  gem 'guard-rspec', require: false
+end
+
+group :test do
   gem 'capybara'
+  gem 'database_cleaner', '~> 1.3.0'
 end
 
 
@@ -51,5 +61,6 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'rails_12factor', group: :production
 gem 'protected_attributes'
+
 
 ruby '2.0.0'

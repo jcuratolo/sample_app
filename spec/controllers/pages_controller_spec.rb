@@ -56,7 +56,7 @@ RSpec.describe PagesController, :type => :controller do
     end
 
     it "should have the right title" do
-      expect(response.body).to have_selector("title", text: "RoR Tutorial Sample App | About", visible: false)
+      expect(response.body).to have_selector("title", text: "RoR Tutorial Sample App | About us", visible: false)
     end
   end
 end
