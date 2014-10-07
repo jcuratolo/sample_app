@@ -39,6 +39,7 @@ group :development, :test do
   #gem 'factory_girl_rails', '~> 4.4.1'
   gem 'fabrication'
   gem 'guard-rspec', require: false
+  gem 'launchy'
 end
 
 group :test do

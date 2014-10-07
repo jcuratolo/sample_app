@@ -2,11 +2,12 @@ require 'rails_helper'
 
 RSpec.describe "User Pages", :type => :request do
 
+
   subject { page }
+
 
   describe "signup page" do
     before { visit signup_path }
-
     it "Should have an h1 Sign up" do
       expect(page)
       .to have_selector('h1', text: 'Sign up')
@@ -20,21 +21,18 @@ RSpec.describe "User Pages", :type => :request do
 
     it "should have the right links on the layout" do
       visit root_path
-
+      click_link "Sign in"
+      expect(page)
+        .to have_selector('title', text: full_title('Sign in'), visible: false)
       click_link "About"
       expect(page)
-      .to have_selector(
-      'title', text: full_title('About us'), visible: false)
-
+        .to have_selector('title', text: full_title('About us'), visible: false)
       click_link "Contact"
       expect(page)
-      .to have_selector(
-      'title', text: full_title('Contact us'), visible: false)
-
+        .to have_selector('title', text: full_title('Contact us'), visible: false)
       click_link "Sign up"
       expect(page)
-      .to have_selector(
-      'title', text: full_title('Sign up'), visible: false)
+        .to have_selector('title', text: full_title('Sign up'), visible: false)
     end
   end
 
@@ -43,7 +41,7 @@ RSpec.describe "User Pages", :type => :request do
 
     it "has a valid fabricator" do
       expect(test_user)
-      .to be_valid
+        .to be_valid
     end
 
     before { visit user_path(test_user) }
